@@ -1,5 +1,0 @@
-echo "Hello World"
-echo "hi"
-echo "hello2"
-echo "Hi"
-echo "hello"
