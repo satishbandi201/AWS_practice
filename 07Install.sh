@@ -27,4 +27,3 @@ then
 else
     echo "mysql already installed."
     exit 2
-fi
