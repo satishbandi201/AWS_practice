@@ -8,7 +8,7 @@ then
     exit 2
 else
     echo "you running with root user"
-
+fi
 ##package checking
 
 dnf list installed mysql
@@ -27,3 +27,4 @@ then
 else
     echo "mysql already installed."
     exit 2
+fi
