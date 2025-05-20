@@ -11,3 +11,4 @@ echo " Home Directory of user : $HOME"
 echo " PID of the script : $$"
 sleep 10 &
 echo "PID of last command running in background: $!"
+echo "$var1 and $var2"
