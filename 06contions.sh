@@ -4,17 +4,17 @@ DIGIT=$1
 #less
 if [ $DIGIT -lt 20 ]
 then
-    echo " given number is less than $DIGIT"
+    echo " given number is less than 20"
 else
-    echo " given number is greater than $DIGIT"
+    echo " given number is greater than 20"
 fi
 
 ##greater
 if [ $DIGIT -gt 20 ]
 then
-    echo " given number is greater than $DIGIT"
+    echo " given number is greater than 20"
 else
-    echo " given number is less than $DIGIT"
+    echo " given number is less than 20"
 fi
 
 
