@@ -30,7 +30,6 @@ then
     VALIDATE $? "mysql"
 else
     echo "mysql already installed."
-    exit 2
 fi
 
 ##python3
@@ -44,7 +43,6 @@ then
     VALIDATE $? "python3"
 else
     echo "python3 already installed."
-    exit 2
 fi
 
 ##nginx
@@ -58,5 +56,4 @@ then
     VALIDATE $? "nginx"
 else
     echo "nginx already installed."
-    exit 2
 fi
