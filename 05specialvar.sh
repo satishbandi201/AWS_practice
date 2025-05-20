@@ -1,4 +1,7 @@
 #!/bin/bash
+
+var1=123
+var2=234
 echo " all variable passed in script : $@"
 echo " Number of variable passed in script : $#"
 echo " Name of the script : $0"
