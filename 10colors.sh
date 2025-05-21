@@ -50,7 +50,7 @@ else
 fi
 
 ##installing nodejs
-dnf list installed nodeje
+dnf list installed nodejs
 if [ $? -ne 0 ]
 then 
     dnf install nodejs -y
