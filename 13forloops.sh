@@ -15,9 +15,9 @@ PACKAGES=("mysql" "nginx" "nodejs" "python3")
 ##user access checking
 if [ $USER -eq 0 ]
 then
-    echo "you are running with $G root user $N" | tee -a $LOGFILE
+    echo -e "you are running with $G root user $N" | tee -a $LOGFILE
 else
-    ehco "$R ERROR: you are not root user $N" | tee -a $LOGFILE
+    ehco -e "$R ERROR: you are not root user $N" | tee -a $LOGFILE
 fi
 
 ##VALIDATE
@@ -32,7 +32,7 @@ VALIDATE(){
 
 ##installing packages using for loop
 
-for package in $PACKAGES[@]
+for package in ${PACKAGES[@]}
 do 
     dnf list installed $package &>>$LOGFILE
     if [ $? -ne 0 ]
@@ -40,6 +40,6 @@ do
     dnf install $package -y &>>$LOGFILE
     VALIDATE $? "$package"
     else
-    echo "$Y $package is already installed $N" | tee -a $LOGFILE
+    echo -e "$Y $package is already installed $N" | tee -a $LOGFILE
     fi
 done
