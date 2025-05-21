@@ -7,7 +7,7 @@ Y="\e[33m"
 N="\e[0m"
 
 LOGPATH="/var/log/Shellscript_logs/"
-SCRIPTNAME=$( echo $0 | cut -d "." f1)
+SCRIPTNAME=$( echo $0 | cut -d "." -f1)
 LOGFILE="$LOGPATH/$SCRIPTNAME.log"
 
 mkdir -p $LOGPATH
