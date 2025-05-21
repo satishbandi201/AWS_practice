@@ -10,7 +10,7 @@ LOGFOLDER="/var/log/Shellscript_logs"
 SCRIPTNAME=$( echo $0 | cut -d "." -f1)
 LOGFILE=$LOGFOLDER/$SCRIPTNAME.log
 
-PACKAGES=("mysql" "nginx" "nodejs" "python3")
+PACKAGES=("mysql" "nginx" "nodejs" "httpd")
 
 ##user access checking
 if [ $USER -eq 0 ]
