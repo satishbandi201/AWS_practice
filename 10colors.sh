@@ -36,7 +36,7 @@ then
     dnf install mysql -y
     VALIDATE $? "mysql"
 else
-    echo "mysql is already installed"
+    echo -e "$Y mysql is already installed $N"
 fi
 
 #installing nginx package
@@ -46,7 +46,7 @@ then
     dnf install nginx -y
     VALIDATE $? "nginx"
 else
-    echo "nginx is already installed."
+    echo -e "$Y nginx is already installed. $N"
 fi
 
 ##installing nodejs
@@ -56,5 +56,5 @@ then
     dnf install nodejs -y
     VALIDATE $? "nodejs"
 else
-    echo "nodejs already installed"
+    echo -e "$Y nodejs already installed $N"
 fi
