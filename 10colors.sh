@@ -28,7 +28,7 @@ VALIDATE (){
     fi    
 }
 
-#installing packages
+#installing mysql packages
 
 dnf list installed mysql
 if [ $? -ne 0 ]
@@ -39,3 +39,22 @@ else
     echo "mysql is already installed"
 fi
 
+#installing nginx package
+dnf list installed nginx
+if [ $? -ne 0 ]
+then
+    dnf install nginx -y
+    VALIDATE $? "nginx"
+else
+    echo "nginx is already installed."
+fi
+
+##installing nodejs
+dnf list installed nodeje
+if [ $? -ne 0 ]
+then 
+    dnf install nodejs -y
+    VALIDATE $? "nodejs"
+else
+    echo "nodejs already installed"
+fi
