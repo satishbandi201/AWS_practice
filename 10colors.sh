@@ -13,5 +13,5 @@ if [ $USER -eq 0 ]
 then 
     echo "you are running with root user"
 else
-    echo "Error: you are not a root user"
+    echo -e "$R Error: you are not a root user $N"
 fi
