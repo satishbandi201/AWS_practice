@@ -7,13 +7,14 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 LOGFOLDER="/var/log/Shellscript_logs"
-SCRIPTNAME=$( $0 | cut -d "." -f1)
+SCRIPTNAME=$( echo $0 | cut -d "." -f1)
 LOGFILE=$LOGFOLDER/$SCRIPTNAME.log
 
 PACKAGES=("mysql" "nginx" "nodejs" "python3")
 
 ##user access checking
 if [ $USER -eq 0 ]
+then
     echo "you are running with $G root user $N" | tee -a $LOGFILE
 else
     ehco "$R ERROR: you are not root user $N" | tee -a $LOGFILE
