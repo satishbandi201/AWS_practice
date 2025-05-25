@@ -2,7 +2,8 @@
 
 AMI_ID="ami-09c813fb71547fc4f"
 SG_ID="sg-03198fa0653d6dd89"
-INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "shipping" "payment" "dispatch" "frontend")
+INSTANCES=("frontend")
+#"mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "shipping" "payment" "dispatch" 
 ZONE_ID="Z10145872BEYXWGCKYUZ9"
 DOMAIN_NAME="satish84s.site"
 
