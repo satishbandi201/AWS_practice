@@ -54,33 +54,36 @@ nodejs(){
     id roboshop
     if [ $? -eq 0 ]
     then
-        echo -e "roboshop user already $G Exist $N"
+        echo -e "roboshop user already $G Exist $N" | tee -a $LOG_FILE
     else
         useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
         VALIDATE $? "roboshop user creation"
     fi
 
     mkdir -p /app
-    curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
+    cd /tmp
+    rm -rf /tmp/*.zip
+    curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip >>$LOG_FILE
     VALIDATE $? "get zip code from git"
 
     cd /app
-    unzip /tmp/catalogue.zip
+    rm -rf /app/*
+    unzip /tmp/catalogue.zip >>$LOG_FILE
     VALIDATE $? "unzip the code in app folder"
 
-    npm install
+    npm install >>$LOG_FILE
     VALIDATE $? "installing npm"
 
     cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service
     VALIDATE $? "copying configuration file"
-
-    systemctl daemon-reload
+ 
+    systemctl daemon-reload >>$LOG_FILE
     VALIDATE $? "reload"
 
-    systemctl enable catalogue
+    systemctl enable catalogue >>$LOG_FILE
     VALIDATE $? "enable the catalogue"
 
-    systemctl start catalogue
+    systemctl start catalogue >>$LOG_FILE
     VALIDATE $? "Start catalogue"
 }
 
