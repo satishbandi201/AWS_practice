@@ -1,5 +1,6 @@
 #!/bin/bash
 source ./common.sh
+appname=catalogue
 
 nodejs
 

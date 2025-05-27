@@ -59,32 +59,34 @@ nodejs(){
         useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
         VALIDATE $? "roboshop user creation"
     fi
+}
 
+service(){
     mkdir -p /app
     cd /tmp
     rm -rf /tmp/*.zip
-    curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$LOG_FILE
+    curl -o /tmp/$appname.zip https://roboshop-artifacts.s3.amazonaws.com/$appname-v3.zip &>>$LOG_FILE
     VALIDATE $? "get zip code from git"
 
     cd /app
     rm -rf /app/*
-    unzip /tmp/catalogue.zip &>>$LOG_FILE
+    unzip /tmp/$appname.zip &>>$LOG_FILE
     VALIDATE $? "unzip the code in app folder"
 
     npm install &>>$LOG_FILE
     VALIDATE $? "installing npm"
 
-    cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service
+    cp $SCRIPT_DIR/$appname.service /etc/systemd/system/$appname.service
     VALIDATE $? "copying configuration file"
  
     systemctl daemon-reload &>>$LOG_FILE
     VALIDATE $? "reload"
 
-    systemctl enable catalogue &>>$LOG_FILE
-    VALIDATE $? "enable the catalogue"
+    systemctl enable $appname &>>$LOG_FILE
+    VALIDATE $? "enable the $appname"
 
-    systemctl start catalogue &>>$LOG_FILE
-    VALIDATE $? "Start catalogue"
+    systemctl start $appname &>>$LOG_FILE
+    VALIDATE $? "Start $appname"
 }
 
 
