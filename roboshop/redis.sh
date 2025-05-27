@@ -11,7 +11,7 @@ VALIDATE $? "enable redis"
 dnf install redis -y &>>$LOG_FILE
 VALIDATE $? "install redis"
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protected-mode/ c protected-mode no' /etc/redis/redis.conf
 VALIDATE $? "replace ip in config file"
 
 systemctl enable redis &>>$LOG_FILE
