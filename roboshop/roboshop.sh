@@ -2,12 +2,13 @@
 
 AMI_ID="ami-09c813fb71547fc4f"
 SG_ID="sg-03198fa0653d6dd89"
-INSTANCES=("frontend")
+#INSTANCES=("frontend")
 #"mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "shipping" "payment" "dispatch" 
 ZONE_ID="Z10145872BEYXWGCKYUZ9"
 DOMAIN_NAME="satish84s.site"
 
-for instance in ${INSTANCES[@]}
+#for instance in ${INSTANCES[@]}
+for instance in $@
 do
      
     INSTANCE_ID=$(aws ec2 run-instances --image-id ami-09c813fb71547fc4f --instance-type t2.micro --security-group-ids sg-03198fa0653d6dd89 --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=$instance}]" --query "Instances[0].InstanceId" --output text)
