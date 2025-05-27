@@ -8,7 +8,7 @@ SCRIPT_DIR=$PWD
 
 ##user access checking
 
-if [ $USER -ne 0 ]
+if [ $USER -eq 0 ]
 then
     echo -e "you are running with $G root access $N"
 else
