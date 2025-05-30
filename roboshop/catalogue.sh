@@ -4,6 +4,13 @@ appname=catalogue
 
 nodejs
 
+getcode
+
+npm install &>>$LOG_FILE
+VALIDATE $? "installing npm"
+
+service
+
 mongorepo
 
 dnf install mongodb-mongosh -y &>>$LOG_FILE
