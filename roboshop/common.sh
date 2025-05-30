@@ -49,8 +49,10 @@ nodejs(){
 
     dnf install nodejs -y &>>$LOG_FILE
     VALIDATE $? "install nodejs" 
+}
 
-    #user creation check
+#user creation check
+getcode(){
     id roboshop
     if [ $? -eq 0 ]
     then
@@ -59,9 +61,6 @@ nodejs(){
         useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
         VALIDATE $? "roboshop user creation"
     fi
-}
-
-service(){
     mkdir -p /app
     cd /tmp
     rm -rf /tmp/*.zip
@@ -72,10 +71,9 @@ service(){
     rm -rf /app/*
     unzip /tmp/$appname.zip &>>$LOG_FILE
     VALIDATE $? "unzip the code in app folder"
+}
 
-    npm install &>>$LOG_FILE
-    VALIDATE $? "installing npm"
-
+service(){  
     cp $SCRIPT_DIR/$appname.service /etc/systemd/system/$appname.service
     VALIDATE $? "copying configuration file"
  
