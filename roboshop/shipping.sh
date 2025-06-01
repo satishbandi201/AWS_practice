@@ -11,6 +11,10 @@ VALIDATE $? "install maven"
 
 getcode
 
+cd /app 
+mvn clean package 
+mv target/shipping-1.0.jar shipping.jar 
+
 cp $SCRIPT_DIR/shipping.service /etc/systemd/system/shipping.service
 VALIDATE $? "copying shipping service"
 
