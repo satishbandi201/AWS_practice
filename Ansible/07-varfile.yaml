@@ -1,0 +1,9 @@
+- name: varibale input from file
+  hosts: local
+  connection: local
+  vars_file:
+  - variablesinput.yaml
+  tasks:
+  - name: print details
+    ansible.builtin.debug:
+      msg: "Hello My Name is {{ NAME }}, and my surname is {{ SURNAME }}, and my age is {{ AGE }}."
