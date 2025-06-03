@@ -1,5 +1,6 @@
 - name: intsall nginx
-  hosts: frontend
+  hosts: local
+  connection: local
   become: yes
   tasks:
   - name: intsall nginx server
