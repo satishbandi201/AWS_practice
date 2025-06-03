@@ -5,15 +5,14 @@
     SURNAME: BANDI
     AGE: 25
   tasks:
+  - name: print details
     vars:
       NAME: THARUN
       SURNAME: KAKITLA
       AGE: 30
-    tasks:
-    - name: print details
-      ansible.builtin.debug:
+    ansible.builtin.debug:
       msg: "Hello My Name is {{ NAME }}, and Surname is {{ SURNAME }}, and My Age is {{ AGE }}"
 
-    - name: print details again
-      ansible.builtin.debug:
+  - name: print details again
+    ansible.builtin.debug:
       msg: "Hello My Name is {{ NAME }}, and Surname is {{ SURNAME }}, and My Age is {{ AGE }}."
