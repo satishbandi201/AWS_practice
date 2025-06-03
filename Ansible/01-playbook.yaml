@@ -1,7 +1,5 @@
 - name: check server connections
-  hosts: local
-  connections: local
+  hosts: frontend
   tasks:
   - name: ping the server
     ansible.builtin.ping:
-    
