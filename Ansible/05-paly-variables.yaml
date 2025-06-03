@@ -1,0 +1,15 @@
+- name: play level variables
+  hosts: local
+  connection: local
+  vars:
+    NAME: SATISH
+    SURNAME: BANDI
+    AGE: 25
+  tasks:
+  - name: print details
+    ansible.builtin.debug:
+      msg: "Hello My Name is {{ NAME }}, and Surname is {{ SURNAME }}, and Age is {{ AGE }}"
+    
+  - name: print details again
+    ansible.builtin.debug:
+      msg: "Hello My name is {{ NAME }}, and Surname is {{ SURNAME }}, and Age is {{ AGE }}"
