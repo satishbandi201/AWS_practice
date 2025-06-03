@@ -1,6 +1,5 @@
 - name: hello wolrd
-  hosts: local
-  connection: local
+  hosts: frontend
   tasks:
   - name: print hello wolrd
     ansible.builtin.debug:
