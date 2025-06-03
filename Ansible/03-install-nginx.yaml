@@ -1,0 +1,13 @@
+- name: intsall nginx
+  hosts: frontend
+  tasks:
+  - name: intsall nginx server
+    ansible.builtin.package:
+    name: nginx
+    state: present
+
+  - name: start nginx service
+    ansible.builtin.package:
+    name: nginx
+    state: present
+    enable: yes
