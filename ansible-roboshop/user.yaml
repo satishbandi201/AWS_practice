@@ -1,0 +1,32 @@
+- name: install user module
+  hosts: user
+  become: yes
+  tasks:
+    - name: disable default nodejs version
+      ansible.builtin.command: dnf module disable nodejs -y
+
+    - name: enable required nodejs version
+      ansible.builtin.command: dnf module enable nodejs:20 -y
+
+    - name: intstall nodejs
+      ansible.builtin.dnf:
+        name: nginx
+        state: present
+    
+    - name: adding roboshop user
+      ansible.builtin.user:
+        name: roboshop
+        system: yes
+        shell: /sbin/nologin/
+        home: /app
+
+    - name: create app directory
+      ansible.builtin.file:
+        path: /app
+        state: directory
+    
+    - name: get code from git
+      ansible.builtin.get_url:
+        url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip
+        dest: /tmp/user.zip
+      
