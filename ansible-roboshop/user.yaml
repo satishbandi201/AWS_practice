@@ -41,7 +41,7 @@
         path: /app
 
     - name: copy user service file
-      ansible.builtin.file:
+      ansible.builtin.copy:
         src: user.service
         dest: /etc/systemd/system/user.service
 
