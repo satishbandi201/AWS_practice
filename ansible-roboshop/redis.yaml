@@ -23,7 +23,7 @@
       ansible.builtin.lineinfile:
         path: /etc/redis/redis.conf
         regexp: 'protected-mode'
-        replace: protected-mode no
+        line: protected-mode no
 
     - name: enable and start
       ansible.builtin.service:
