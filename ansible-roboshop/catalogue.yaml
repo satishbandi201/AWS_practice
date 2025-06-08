@@ -36,7 +36,7 @@
         dest: /app
 
     - name: install dependencies
-      ansible.general.npm:
+      community.general.npm:
         path: /app
 
     - name: copy catalogue servive
