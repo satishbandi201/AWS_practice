@@ -10,8 +10,8 @@
 
     - name: install nodejs
       ansible.builtin.dnf:
-      name: nodejs
-      state: present
+       name: nodejs
+       state: present
 
     - name: application user
       ansible.builtin.user:
