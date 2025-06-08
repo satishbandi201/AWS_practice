@@ -30,3 +30,28 @@
         url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip
         dest: /tmp/user.zip
       
+    - name: unzip code in app
+      ansible.builtin.unarchive:
+        src: /tmp/user.zip
+        dest: /app
+        remote_src: yes
+    
+    - name: install dependencies
+      community.general.npm:
+        path: /app
+
+    - name: copy user service file
+      ansible.builtin.file:
+        src: user.service
+        dest: /etc/systemd/system/user.service
+
+    - name: daemon reload
+      ansible.builtin.systemd_service:
+        daemon_reload: yes
+
+    - name: start and enable user
+      ansible.builtin.service:
+        name: user
+        state: started
+        enabled: yes
+    
