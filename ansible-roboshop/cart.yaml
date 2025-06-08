@@ -35,6 +35,10 @@
       src: /tmp/cart.zip
       dest: /app
       remote_src: yes
+
+  - name: install dependencies
+    community.general.npm:
+      path: /app
   
   - name: copy cart service file
     ansible.builtin.copy:
