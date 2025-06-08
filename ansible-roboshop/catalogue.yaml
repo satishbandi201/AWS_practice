@@ -10,8 +10,8 @@
 
     - name: install nodejs
       ansible.builtin.dnf:
-       name: nodejs
-       state: present
+        name: nodejs
+        state: present
 
     - name: application user
       ansible.builtin.user:
@@ -32,17 +32,17 @@
 
     - name: extract catalogue code
       ansible.builtin.unarchive:
-       src: /tmp/catalogue.zip
-       dest: /app
+        src: /tmp/catalogue.zip
+        dest: /app
 
     - name: install dependencies
       ansible.general.npm:
-      path: /app
+        path: /app
 
     - name: copy catalogue servive
       ansible.builtin.copy:
-      src: catalogue.service
-      dest: /etc/systemd/system/catalogue.service
+        src: catalogue.service
+        dest: /etc/systemd/system/catalogue.service
 
     - name: system daemon reload
       ansible.builtin.systemd.service:
@@ -50,9 +50,9 @@
 
     - name: start and enable catalogue service
       ansible.builtin.service:
-      name: catalogue
-      state: started
-      enabled: yes
+        name: catalogue
+        state: started
+        enabled: yes
     
     - name: copy mongo repo
       ansible.builtin.copy:
