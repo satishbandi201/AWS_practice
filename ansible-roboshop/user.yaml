@@ -10,7 +10,7 @@
 
     - name: intstall nodejs
       ansible.builtin.dnf:
-        name: nginx
+        name: nodejs
         state: present
     
     - name: adding roboshop user
