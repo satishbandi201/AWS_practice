@@ -2,11 +2,6 @@
   hosts: shipping
   become: yes
   tasks:
-  #- name: configure shipping component
-   # ansible.builtin.dnf:
-    #  name: maven
-     # state: present
-
   - name: install maven and mysql using loop
     ansible.builtin.dnf:
       name: "{{ item }}"
