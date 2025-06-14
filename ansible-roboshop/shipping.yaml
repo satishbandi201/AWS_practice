@@ -31,7 +31,7 @@
       path: /app
       state: directory
 
-  - name: get code from gitmcommand: mv target/shipping-1.0.jar shipping.jar
+  - name: get code from git
     ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/shipping-v3.zip
       dest: /tmp/shipping.zip
