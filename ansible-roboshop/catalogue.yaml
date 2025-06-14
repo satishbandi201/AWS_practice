@@ -1,5 +1,5 @@
 - name: install catalogue service
-  hosts: catalogue.satish84s.site
+  hosts: catalogue
   become: yes
   tasks:
     - name: enable required version
