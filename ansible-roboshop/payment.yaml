@@ -1,6 +1,6 @@
 - name: configure payment component
-  hosts: payment
   become: yes
+  hosts: payment
   tasks:
   - name: install python3 packages
     ansible.builtin.dnf:
@@ -11,17 +11,17 @@
     - gcc
     - python3-devel
 
-  - name: add system user
-    ansible.builtin.user:
-      user: roboshop
-      home: /app
-      shell: /sbin/nologin/
-      system: true
-
   - name: create app directory
     ansible.builtin.file:
       path: /app
       state: directory
+
+  - name: add system user
+    ansible.builtin.user:
+      name: roboshop
+      shell: /sbin/nologin
+      system: true
+      home: /app
   
   - name: get code from git
     ansible.builtin.get_url:
