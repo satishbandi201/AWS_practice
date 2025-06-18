@@ -1,0 +1,1 @@
+MYSQL_ROOT_PASS: "{{ lookup('amazon.aws.aws_ssm', '/roboshop/mysql/mysql_root_pass', region='us-east-1', decrypt=True ) }}"
