@@ -1,28 +1,15 @@
-- name: disable default redis
-  ansible.builtin.command: dnf module disable redis -y
+- name: app-setup
+  include_role:
+    name: common
+    tasks_from: app-setup
 
-- name: enable requires redis
-  ansible.builtin.command: dnf module enable redis:7 -y
+- name: nodejs setup
+  include_role:
+    name: common
+    tasks_from: nodejs
 
-- name: install redis
-  ansible.builtin.dnf:
-    name: redis
-    state: present
-
-- name: allow remote connections
-  ansible.builtin.replace:
-    path: /etc/redis/redis.conf
-    regexp: '127.0.0.1'
-    replace: 0.0.0.0
-
-- name: disable protect module
-  ansible.builtin.lineinfile:
-    path: /etc/redis/redis.conf
-    regexp: 'protect-mode'
-    line: protected-mode no
-
-- name: start and enable redis
-  ansible.builtin.service:
-    name: redis
-    state: started
-    enabled: yes
+- name: systemd setup
+  include_role:
+    name: common
+    tasks_from: systemd
+  
