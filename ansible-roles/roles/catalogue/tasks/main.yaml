@@ -35,10 +35,3 @@
     name: common
     tasks_from: systemd
 
-- name: Deployment
-  tags:
-  - deployment
-  import_role:
-    name: common
-    tasks_from: deployment
-
