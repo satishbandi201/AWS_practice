@@ -1,0 +1,7 @@
+CATALOGUE_HOST: catalogue.satish84s.site
+MONGODB_HOST: mongodb.satish84s.site
+FRONTEND_HOST: frontend.satish84s.site
+USER_HOST: frontend.satish84s.site
+CART_HOST: cart.satish84s.site
+PAYMENT_HOST: payment.satish84s.site
+SHIPPING_HOST: shipping.satish84s.site
